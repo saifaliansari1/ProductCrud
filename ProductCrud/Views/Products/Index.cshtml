@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ProductCrud.Models.Product>
+
+<div class="mb-2">
+    <a asp-action="Create" class="btn btn-primary float-end mb-2">Add Product</a>
+</div>
+<table class="table table-bordered table-hover">
+    <thead class="bg-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thea>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id"> <i class="btn btn-info bi bi-file-earmark-person"></i> </a>
+                    <a asp-action="Edit" asp-route-id="@item.Id"> <i class="btn btn-primary bi bi-pencil-fill"></i> </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id"> <i class="btn btn-danger bi bi-file-x-fill"></i> </a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
